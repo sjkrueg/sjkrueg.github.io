@@ -23,7 +23,7 @@
                     .datum(topojson.feature(africa_base, africa_base.objects.subunits))
                     .attr("d", d3.geo.path().projection(d3.geo.mercator()));*/
 
-                var subunits = topojson.feature(africa_base, africa_base.objects.subunit);
+                var subunits = topojson.feature(africa_base, africa_base.objects."subunit");
 
                 var projection = d3.geo.albers()
                     .center([0, 25])

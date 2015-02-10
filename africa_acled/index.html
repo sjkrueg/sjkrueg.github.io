@@ -25,12 +25,16 @@
 
                 var subunits = topojson.feature(africa_combined, africa_combined.objects.africa_base);
 
-                var projection = d3.geo.albers()
+                var projection = d3.geo.mercator()
+                    .scale(500)
+                    .translate([width / 2, height / 2]);
+
+                /*var projection = d3.geo.albers()
                     .center([0, 25])
                     .rotate([0, 0])
                     .parallels([-23, 20])
                     .scale(35000000)
-                    .translate([width / 2, height / 2]);    
+                    .translate([width / 2, height / 2]);*/    
 
                 var path = d3.geo.path()
                     .projection(projection);

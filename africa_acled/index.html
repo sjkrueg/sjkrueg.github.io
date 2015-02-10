@@ -15,15 +15,15 @@
                 .attr("width", width)
                 .attr("height", height);
 
-            d3.json("africa_base.json", function(error, africa_base) {
+            d3.json("africa_combined.json", function(error, africa_combined) {
                 if (error) return console.error(error);
-                console.log(africa_base);
+                console.log(africa_combined);
 
                 /*svg.append("path")
-                    .datum(topojson.feature(africa_base, africa_base.objects.subunits))
+                    .datum(topojson.feature(africa_combined, africa_combined.objects.subunits))
                     .attr("d", d3.geo.path().projection(d3.geo.mercator()));*/
 
-                var subunits = topojson.feature(africa_base, africa_base.objects."subunit");
+                var subunits = topojson.feature(africa_combined, africa_combined.objects.africa_base);
 
                 var projection = d3.geo.albers()
                     .center([0, 25])

@@ -42,6 +42,65 @@
                 svg.append("path")
                     .datum(subunits)
                     .attr("d", path);
+
+                svg.selectAll(".africa_base")
+                    .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
+                  .enter().append("path")
+                    .attr("class", function(d) { return "africa_base " + d.id; })
+                    .attr("d", path);
+                    .subunit.AGO{ fill: #ddc; }
+                    .subunit.BDI{ fill: #cdd; }
+                    .subunit.BEN{ fill: #cdc; }
+                    .subunit.BFA{ fill: #dcd; }
+                    .subunit.BWA{ fill: #ddc; }
+                    .subunit.CAF{ fill: #cdd; }
+                    .subunit.CIV{ fill: #cdc; }
+                    .subunit.CMR{ fill: #dcd; }
+                    .subunit.COD{ fill: #ddc; }
+                    .subunit.COG{ fill: #cdd; }
+                    .subunit.DJI{ fill: #cdc; }
+                    .subunit.DZA{ fill: #dcd; }
+                    .subunit.EGY{ fill: #ddc; }
+                    .subunit.ERI{ fill: #cdd; }
+                    .subunit.ETH{ fill: #cdc; }
+                    .subunit.GAB{ fill: #dcd; }
+                    .subunit.GHA{ fill: #ddc; }
+                    .subunit.GIN{ fill: #cdd; }
+                    .subunit.GMB{ fill: #cdc; }
+                    .subunit.GNB{ fill: #dcd; }
+                    .subunit.GNQ{ fill: #ddc; }
+                    .subunit.KEN{ fill: #cdd; }
+                    .subunit.LBR{ fill: #cdc; }
+                    .subunit.LBY{ fill: #dcd; }
+                    .subunit.LSO{ fill: #ddc; }
+                    .subunit.MAR{ fill: #cdd; }
+                    .subunit.MDG{ fill: #cdc; }
+                    .subunit.MLI{ fill: #dcd; }
+                    .subunit.MOZ{ fill: #ddc; }
+                    .subunit.MRT{ fill: #cdd; }
+                    .subunit.MWI{ fill: #cdc; }
+                    .subunit.NAM{ fill: #dcd; }
+                    .subunit.NER{ fill: #ddc; }
+                    .subunit.NGA{ fill: #cdd; }
+                    .subunit.RWA{ fill: #cdc; }
+                    .subunit.SAH{ fill: #dcd; }
+                    .subunit.SDN{ fill: #ddc; }
+                    .subunit.SDS{ fill: #cdd; }
+                    .subunit.SEN{ fill: #cdc; }
+                    .subunit.SLE{ fill: #dcd; }
+                    .subunit.SOL{ fill: #ddc; }
+                    .subunit.SOM{ fill: #cdd; }
+                    .subunit.SWZ{ fill: #cdc; }
+                    .subunit.TCD{ fill: #dcd; }
+                    .subunit.TGO{ fill: #ddc; }
+                    .subunit.TUN{ fill: #cdd; }
+                    .subunit.TZA{ fill: #cdc; }
+                    .subunit.UGA{ fill: #dcd; }
+                    .subunit.ZAF{ fill: #ddc; }
+                    .subunit.ZMB{ fill: #ddc; }
+                    .subunit.ZWE{ fill: #ddc; }
+
+
             });       
         </script>
 

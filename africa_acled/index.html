@@ -98,7 +98,7 @@
             .attr("d", path);
 
                 svg.selectAll(".africa_base")
-            .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
+            .data(topojson.feature(africa_combined, africa_combined.objects.africa_base).features)
                   .enter().append("path")
             .attr("class", function(d) { return "africa_base " + d.id; })
             .attr("d", path);

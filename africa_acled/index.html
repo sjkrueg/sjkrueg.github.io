@@ -70,8 +70,6 @@
                 .attr("height", height);
 
             d3.json("africa_combined.json", function(error, africa_combined) {
-                if (error) return console.error(error);
-                console.log(africa_combined);
                 svg.selectAll(".africa_base")
                     .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
                   .enter().append("path")

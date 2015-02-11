@@ -47,7 +47,6 @@
                     .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
                   .enter().append("path")
                     .attr("class", function(d) { return "africa_base " + d.id; })
-                    .attr("d", path);
                     .africa_base.AGO{ fill: #ddc; }
                     .africa_base.BDI{ fill: #cdd; }
                     .africa_base.BEN{ fill: #cdc; }
@@ -99,6 +98,8 @@
                     .africa_base.ZAF{ fill: #ddc; }
                     .africa_base.ZMB{ fill: #ddc; }
                     .africa_base.ZWE{ fill: #ddc; }
+                    .attr("d", path);
+                    
 
 
             });       

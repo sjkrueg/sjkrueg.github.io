@@ -70,11 +70,8 @@
                 .attr("height", height);
 
             d3.json("africa_combined.json", function(error, africa_combined) {
-                svg.selectAll(".africa_base")
-                    .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
-                  .enter().append("path")
-                    .attr("class", function(d) { return "subunit " + d.id; })
-                    .attr("d", path);
+                if (error) return console.error(error);
+                console.log(africa_combined);
 
                 /*svg.append("path")
             .datum(topojson.feature(africa_combined, africa_combined.objects.subunits))
@@ -94,7 +91,13 @@
 
                 svg.append("path")
                     .datum(subunits)
-                    .attr("d", path);                
+                    .attr("d", path);
+
+                svg.selectAll(".africa_base")
+                    .data(topojson.feature(africa_combined, africa_combined.objects.subunits).features)
+                  .enter().append("path")
+                    .attr("class", function(d) { return "subunit " + d.id; })
+                    .attr("d", path);
             
             });       
         </script>

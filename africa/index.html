@@ -61,6 +61,17 @@
           stroke-linejoin: round;
         }
 
+        .place,
+        .place-label {
+          fill: #444;
+        }
+
+        text {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 10px;
+          pointer-events: none;
+        }
+
     </style>
     <body>
         <script type="text/javascript" src="d3/d3.js" charset="utf-8"></script>
@@ -99,6 +110,22 @@
               .datum(topojson.mesh(africa, africa.objects.subunits, function(a, b) { return a !== b && a.id !== "IRL"; }))
               .attr("d", path)
               .attr("class", "subunit-boundary");
+
+          svg.append("path")
+              .datum(topojson.feature(africa, africa.objects.places))
+              .attr("d", path)
+              .attr("class", "place");
+
+          svg.selectAll(".place-label")
+              .data(topojson.feature(africa, africa.objects.places).features)
+            .enter().append("text")
+              .attr("class", "place-label")
+              .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
+              .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 6 : -6; })
+              .attr("dy", ".35em")
+              .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; });
+              .text(function(d) { return d.properties.name; });               
+               
 
           /*svg.append("path")
               .datum(topojson.feature(africa, africa.objects.subunits))

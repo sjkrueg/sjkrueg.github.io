@@ -120,7 +120,7 @@
               .attr("class", "subunit-boundary");
 
           svg.selectAll(".subunit-label")
-              .data(subunits.features)
+              .data(topojson.feature(africa, africa.objects.subunits).features)
             .enter().append("text")
               .attr("class", function(d) { return "subunit-label " + d.id; })
               .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })

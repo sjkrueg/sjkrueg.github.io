@@ -54,6 +54,13 @@
         .subunit.ZMB{ fill: #ddc; }
         .subunit.ZWE{ fill: #ddc; }
 
+        .subunit-boundary {
+          fill: none;
+          stroke: #777;
+          stroke-dasharray: 2,2;
+          stroke-linejoin: round;
+        }
+
     </style>
     <body>
         <script type="text/javascript" src="d3/d3.js" charset="utf-8"></script>
@@ -87,6 +94,11 @@
             .enter().append("path")
               .attr("class", function(d) { return "subunit " + d.id; })
               .attr("d", path);
+
+          svg.append("path")
+              .datum(topojson.mesh(africa, africa.objects.subunits, function(a, b) { return a !== b && a.id !== "IRL"; }))
+              .attr("d", path)
+              .attr("class", "subunit-boundary");
 
           /*svg.append("path")
               .datum(topojson.feature(africa, africa.objects.subunits))

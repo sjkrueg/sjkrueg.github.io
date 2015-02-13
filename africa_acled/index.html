@@ -65,9 +65,19 @@
             var width = 960,
                 height = 1160;
 
+            var projection = d3.geo.albers()
+                .center([0, 25])
+                .rotate([0, 0])
+                .parallels([-23, 20])
+                .scale(500)
+                .translate([width / 2, height / 2]); 
+
             var svg = d3.select("body").append("svg")
                 .attr("width", width)
                 .attr("height", height);
+
+            var path = d3.geo.path()
+                    .projection(projection);
 
             d3.json("africa_combined.json", function(error, africa_combined) {
                 if (error) return console.error(error);
@@ -78,16 +88,6 @@
             .attr("d", d3.geo.path().projection(d3.geo.mercator()));*/
 
                 var subunits = topojson.feature(africa_combined, africa_combined.objects.africa_base);
-
-                var projection = d3.geo.albers()
-                    .center([0, 25])
-                    .rotate([0, 0])
-                    .parallels([-23, 20])
-                    .scale(500)
-                    .translate([width / 2, height / 2]);    
-
-                var path = d3.geo.path()
-                    .projection(projection);
 
                 svg.append("path")
                     .datum(subunits)
